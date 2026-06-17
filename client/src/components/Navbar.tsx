@@ -12,9 +12,9 @@ const Navbar = () => {
         <Image
           src="/logo.png"
           alt="Zhumsng"
-          width={48}
+          width={96}
           height={48}
-          className="w-12 h-12 md:w-14 md:h-14"
+          className="w-24 h-12 md:w-28 md:h-14"
         />
         <p className="ml-2 text-sm md:text-md font-medium tracking-wider">
           ZHUMSNG.
