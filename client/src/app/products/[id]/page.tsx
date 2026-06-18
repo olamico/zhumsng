@@ -23,13 +23,15 @@ const product: ProductType = {
 export const generateMetadata = async ({
   params,
 }: {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }) => {
+  const { id } = await params;
+
   // TODO:get the product from db
   // TEMPORARY
   return {
-    title: product.name,
-    describe: product.description,
+    title: `${product.name} (${id})`,
+    description: product.description,
   };
 };
 
