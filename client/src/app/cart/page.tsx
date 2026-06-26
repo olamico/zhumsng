@@ -6,8 +6,9 @@ import useCartStore from "@/stores/cartStore";
 import { ShippingFormInputs } from "@/types";
 import { ArrowRight, Trash2 } from "lucide-react";
 import Image from "next/image";
+
 import { useRouter, useSearchParams } from "next/navigation";
-import { useState } from "react";
+import { useState, Suspense } from "react";
 
 const steps = [
   {
@@ -81,7 +82,7 @@ const steps = [
 //   },
 // ];
 
-const CartPage = () => {
+const CartContent = () => {
   const searchParams = useSearchParams();
   const router = useRouter();
   const [shippingForm, setShippingForm] = useState<ShippingFormInputs>();
@@ -221,6 +222,12 @@ const CartPage = () => {
         </div>
       </div>
     </div>
+    const CartPage = () => {
+  return (
+    // You can customize this fallback UI (e.g., add a spinner or skeleton loader)
+    <Suspense fallback={<div className="mt-12 text-center text-gray-500">Loading your cart...</div>}>
+      <CartContent />
+    </Suspense>
   );
 };
 
