@@ -29,6 +29,9 @@ export const generateMetadata = async ({
 
   // TODO:get the product from db
   // TEMPORARY
+  const product = {name:"Placeholder Name",
+    description: "Placeholder description",
+  }
   return {
     title: `${product.name} (${id})`,
     description: product.description,
@@ -42,6 +45,7 @@ const ProductPage = async ({
   params: Promise<{ id: string }>;
   searchParams: Promise<{ color: string; size: string }>;
 }) => {
+  const {id} = await params;
   const { size, color } = await searchParams;
 
   const selectedSize = size || (product.sizes[0] as string);
