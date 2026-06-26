@@ -224,7 +224,6 @@ const CartContent = () => {
     </div>
     const CartPage = () => {
   return (
-    // You can customize this fallback UI (e.g., add a spinner or skeleton loader)
     <Suspense fallback={<div className="mt-12 text-center text-gray-500">Loading your cart...</div>}>
       <CartContent />
     </Suspense>
